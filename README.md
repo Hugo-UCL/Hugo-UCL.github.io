@@ -22,3 +22,5 @@ Avec `overflow_to_sample_mapping = [0, 0, 0, 0, 1, 1, 1, 1]`, le mapping est le 
 - `[1, 1, 1, 1]` indique que les fragments 1.1, 1.2, 1.3, et 1.4 appartiennent tous à la Phrase 1.
 
 
+
+**Utilisation de `sample_idx`**: Dans votre boucle `for`, vous parcourez chaque fragment tokenisé (représenté ici par `offset`). Pour chaque fragment, vous utilisez `sample_idx = sample_map[i]` pour obtenir l'index de l'entrée originale du dataset d'où ce fragment provient. `i` est l'index du fragment dans la tokenisation, et `sample_map[i]` est l'index de l'entrée correspondante dans le dataset original.

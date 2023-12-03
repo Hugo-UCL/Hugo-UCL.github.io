@@ -1,7 +1,8 @@
-# Hugo-UCL.github.io
+# Linguistic
 
+**Gestion des Tokens Overflow** : La fonction traite les cas où une paire question-context dépasse la longueur maximale autorisée. Elle conserve le mapping entre ces fragments débordants et les exemples originaux à l'aide de `sample_map`.
 
-D'accord, utilisons un exemple concret avec des mots pour illustrer le fonctionnement de `overflow_to_sample_mapping`. Imaginons que nous ayons un dataset de deux phrases très longues nécessitant une tokenisation en plusieurs fragments. Voici les phrases et leurs fragments respectifs :
+`overflow_to_sample_mapping`. Imaginons que nous ayons un dataset de deux phrases très longues nécessitant une tokenisation en plusieurs fragments. Voici les phrases et leurs fragments respectifs :
 
 1. **Phrase 0 (index 0)** : "Le renard brun rapide saute par-dessus le chien paresseux."
    - Fragment 0.1 : "Le renard brun rapide"
@@ -20,4 +21,4 @@ Avec `overflow_to_sample_mapping = [0, 0, 0, 0, 1, 1, 1, 1]`, le mapping est le 
 - `[0, 0, 0, 0]` indique que les fragments 0.1, 0.2, 0.3, et 0.4 appartiennent tous à la Phrase 0.
 - `[1, 1, 1, 1]` indique que les fragments 1.1, 1.2, 1.3, et 1.4 appartiennent tous à la Phrase 1.
 
-Ainsi, si on tokenise ces fragments et utilise ce mapping, on peut savoir exactement à quelle phrase originale chaque fragment tokenisé appartient, ce qui est crucial pour relier les réponses aux questions dans les tâches de question-réponse, surtout lorsque les réponses peuvent être réparties sur plusieurs fragments.
+

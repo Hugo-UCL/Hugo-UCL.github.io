@@ -53,8 +53,8 @@ text = ("Asian Americans in New York City, according to the 2010 Census, number 
 
 
 - print("Label for question-context at index 4242:", (start_position, end_position)) : : (247, 250)
-- print(train_dataset["offset_mapping"][4242][start_position]) :  [1077, 1078]
-- print(train_dataset["offset_mapping"][4242][end_position]) : [1080, 1081]
+- print(train_dataset["offset_mapping"][4242][start_position]) :  [1077, 1078] (character index)
+- print(train_dataset["offset_mapping"][4242][end_position]) : [1080, 1081] (character index)
 - print(train_dataset["contexts_th"][4242])
 - print("Rep tokenized",train_dataset["answers_th"][4242]) : 6.3%
 

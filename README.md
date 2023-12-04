@@ -52,7 +52,7 @@ text = ("Asian Americans in New York City, according to the 2010 Census, number 
         "Southeast Asians; while Brooklyn is receiving large numbers of both West Indian as well as Asian Indian immigrants.")
 
 
-- print("Label for question-context at index 4242:", (start_position, end_position)) : : (247, 250)
+- print("Label for question-context at index 4242:", (start_position, end_position)) : : (247, 250) (token index)
 - print(train_dataset["offset_mapping"][4242][start_position]) :  [1077, 1078] (character index)
 - print(train_dataset["offset_mapping"][4242][end_position]) : [1080, 1081] (character index)
 - print(train_dataset["contexts_th"][4242])

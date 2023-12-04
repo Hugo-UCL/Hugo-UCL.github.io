@@ -72,15 +72,15 @@ In the early 1900s, James J. Hill of the Great Northern began promoting settleme
 
 
 Label for question-context at index 1203: (16, 19)
-[20, 25]
-[29, 33]
+- print(train_dataset["offset_mapping"][1203][start_position_1203]) : [20, 25]
+- print(train_dataset["offset_mapping"][1203][end_position_1203]) : [29, 33]
 Questiobn tokenized 57342802d058e614000b6a40
 Rep tokenized James J. Hill
 
 
 Label for question-context at index 1001: (19, 20)
-[12, 15]
-[16, 22]
+- print(train_dataset["offset_mapping"][1001][start_position_1001]) : [12, 15]
+- print(train_dataset["offset_mapping"][1001][end_position_1001]) : [16, 22]
 Beyoncé and her mother introduced House of Deréon, a contemporary women's fashion line, in 2005. The concept is inspired by three generations of women in their family, the name paying tribute to Beyoncé's grandmother, Agnèz Deréon, a respected seamstress. According to Tina, the overall style of the line best reflects her and Beyoncé's taste and style. Beyoncé and her mother founded their family's company Beyond Productions, which provides the licensing and brand management for House of Deréon, and its junior collection, Deréon. House of Deréon pieces were exhibited in Destiny's Child's shows and tours, during their Destiny Fulfilled era. The collection features sportswear, denim offerings with fur, outerwear and accessories that include handbags and footwear, and are available at department and specialty stores across the US and Canada.
 Questiobn tokenized 56bfe2a2a10cfb1400551369
 Rep tokenized her mother

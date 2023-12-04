@@ -64,3 +64,18 @@ text = ("Asian Americans in New York City, according to the 2010 Census, number 
 # Finding the character 
 print(text[1077],text[1078],text[1079],text[1080]) : 6.3% SAME GOOD
 L'indice 5 est "exclusif", cela signifie que dans le tuple `[0, 5]` d'un `offset_mapping`, la position 5 n'est pas incluse dans le segment de texte représenté par ce tuple. Asian = `[0, 5]`
+
+
+
+Label for question-context at index 1203: (3, 19)
+None
+[29, 33]
+In the early 1900s, James J. Hill of the Great Northern began promoting settlement in the Montana prairie to fill his trains with settlers and goods. Other railroads followed suit. In 1902, the Reclamation Act was passed, allowing irrigation projects to be built in Montana's eastern river valleys. In 1909, Congress passed the Enlarged Homestead Act that expanded the amount of free land from 160 to 320 acres (0.6 to 1.3 km2) per family and in 1912 reduced the time to "prove up" on a claim to three years. In 1916, the Stock-Raising Homestead Act allowed homesteads of 640 acres in areas unsuitable for irrigation.  This combination of advertising and changes in the Homestead Act drew tens of thousands of homesteaders, lured by free land, with World War I bringing particularly high wheat prices. In addition, Montana was going through a temporary period of higher-than-average precipitation. Homesteaders arriving in this period were known as "Honyockers", or "scissorbills." Though the word "honyocker", possibly derived from the ethnic slur "hunyak," was applied in a derisive manner at homesteaders as being "greenhorns", "new at his business" or "unprepared", the reality was that a majority of these new settlers had previous farming experience, though there were also many who did not.
+Questiobn tokenized 57342802d058e614000b6a40
+Rep tokenized James J. Hill
+Label for question-context at index 1001: (2, 20)
+None
+[16, 22]
+Beyoncé and her mother introduced House of Deréon, a contemporary women's fashion line, in 2005. The concept is inspired by three generations of women in their family, the name paying tribute to Beyoncé's grandmother, Agnèz Deréon, a respected seamstress. According to Tina, the overall style of the line best reflects her and Beyoncé's taste and style. Beyoncé and her mother founded their family's company Beyond Productions, which provides the licensing and brand management for House of Deréon, and its junior collection, Deréon. House of Deréon pieces were exhibited in Destiny's Child's shows and tours, during their Destiny Fulfilled era. The collection features sportswear, denim offerings with fur, outerwear and accessories that include handbags and footwear, and are available at department and specialty stores across the US and Canada.
+Questiobn tokenized 56bfe2a2a10cfb1400551369
+Rep tokenized her mother

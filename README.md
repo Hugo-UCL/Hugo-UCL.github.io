@@ -84,3 +84,21 @@ Label for question-context at index 1001: (19, 20)
 Beyoncé and her mother introduced House of Deréon, a contemporary women's fashion line, in 2005. The concept is inspired by three generations of women in their family, the name paying tribute to Beyoncé's grandmother, Agnèz Deréon, a respected seamstress. According to Tina, the overall style of the line best reflects her and Beyoncé's taste and style. Beyoncé and her mother founded their family's company Beyond Productions, which provides the licensing and brand management for House of Deréon, and its junior collection, Deréon. House of Deréon pieces were exhibited in Destiny's Child's shows and tours, during their Destiny Fulfilled era. The collection features sportswear, denim offerings with fur, outerwear and accessories that include handbags and footwear, and are available at department and specialty stores across the US and Canada.
 Questiobn tokenized 56bfe2a2a10cfb1400551369
 Rep tokenized her mother
+
+
+### part 2
+
+
+144 36
+context: 
+logit: 0.28674316 0.1607666 0.12597656
+144 81
+context: 
+logit: 0.29187012 0.1607666 0.13110352
+144 88
+context: 
+logit: 0.2923584 0.1607666 0.1315918
+144 15
+context: 
+logit: 0.3017578 0.1607666 0.14099121
+144 3

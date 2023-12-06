@@ -138,7 +138,71 @@ mapping = tokenized_inputs['overflow_to_sample_mapping']
 print(mapping)
 ```
 
+# Fonctionement d'un modèle de question réponse
+```python
+import torch
 
+for epoch in range(num_train_epochs):
+    # Training
+
+    # This instruction sets the model to training mode (as opposed to evaluation mode)
+    model.train()
+
+    for step, batch in enumerate(train_dataloader):
+
+        # Get ouputs and loss from the model
+        outputs = model(**batch)
+        loss = outputs.loss
+
+        # Backpropagation
+        #############################################
+        #############accelerate part#################
+        accelerator.backward(loss)
+        #############end of accelerate part##########
+        #############################################
+
+        # TODO: Update model parameters (i.e. weights and biases of the model) by performing an optimization step
+        # Hint: look at optimizer
+        optimizer.step()
+
+        # TODO: Update learning rate
+        # Hint: look at lr_scheduler
+        lr_scheduler.step()
+
+        # TODO: Zero gradients to prevent gradient accumulation
+        optimizer.zero_grad()
+
+        # (Optional, if you want a progress bar)
+        # progress_bar.update(1)
+
+    # Evaluation
+
+    # This instruction sets the model to evaluation mode (as opposed to training mode)
+    model.eval()
+
+    # This initializes lists to store the predicted logits for start and end positions
+    start_logits = []
+    end_logits = []
+
+
+    for batch in val_dataloader:
+        with torch.no_grad():
+            outputs = model(**batch)
+
+        start_logits.append(accelerator.gather(outputs.start_logits).cpu().numpy())
+        end_logits.append(accelerator.gather(outputs.end_logits).cpu().numpy())
+
+    start_logits = np.concatenate(start_logits)
+    end_logits = np.concatenate(end_logits)
+    start_logits = start_logits[: len(validation_dataset)]
+    end_logits = end_logits[: len(validation_dataset)]
+
+
+    metrics = compute_metrics(
+        start_logits, end_logits, validation_dataset
+    )
+    print(f"epoch {epoch}:", metrics)
+```
 
 
 

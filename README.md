@@ -114,24 +114,21 @@ Context: "The SQuAD model is a question-answering model that has been fine-tuned
 
 ## Tokenize 
 ```python
-print(tokenized_dataset["input_ids"][0])
-# [101, 2057, 2235, 102]
-# Représente la phrase : "Le chat dort."
-```
 questions = "Question"
 contexts = "Context"
 
 tokenized_inputs = tokenizer(questions, contexts, padding=True, truncation=True,
                              return_overflowing_tokens=True, stride=50, max_length=100, return_offsets_mapping=True )
 
-Mapping
-mapping = tokenized_inputs['overflow_to_sample_mapping']
-print(mapping)
-
-# Question précédente
-# Récupération des clés du dictionnaire résultant
 tokenized_keys = tokenized_inputs.keys()
 print(tokenized_keys)
+
+#Mapping
+mapping = tokenized_inputs['overflow_to_sample_mapping']
+print(mapping)
+```
+
+
 
 
 

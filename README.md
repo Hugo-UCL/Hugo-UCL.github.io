@@ -218,5 +218,15 @@ for epoch in range(num_train_epochs):
     print(f"epoch {epoch}:", metrics)
 ```
 
+Après avoir activé le mode évaluation avec `model.eval()`, le modèle est utilisé dans cette partie du code :
+
+```python
+for batch in val_dataloader:
+    with torch.no_grad():
+        outputs = model(**batch)
+```
+
+Ici, `model(**batch)` est l'endroit où le modèle est effectivement utilisé. Pour chaque lot (`batch`) de données de l'ensemble de validation (`val_dataloader`), le modèle fait des prédictions. `with torch.no_grad()` est utilisé pour désactiver le calcul des gradients, car pendant l'évaluation, on ne veut pas que le modèle modifie ses poids, ce qui est essentiel pendant la phase d'entraînement.
+
 
 

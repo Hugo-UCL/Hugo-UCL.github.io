@@ -211,6 +211,27 @@ for epoch in range(num_train_epochs):
     print(f"epoch {epoch}:", metrics)
 ```
 
+**Entraînement** :
+
+`model.train()` met le modèle en mode entraînement. Cela affecte certaines couches du modèle, comme les couches de dropout ou de normalisation par batch, pour qu'elles se comportent différemment pendant l'entraînement par rapport à l'évaluation.
+
+
+1.  Calcul des Sorties et de la Perte :
+   - `outputs = model(**batch)` passe les données actuelles (batch) au modèle pour obtenir les prédictions (outputs).
+   - `loss = outputs.loss` calcule la perte (loss), qui mesure l'erreur entre les prédictions du modèle et les réponses attendues.
+
+2.  Rétropropagation: `accelerator.backward(loss)` effectue la rétropropagation de la perte à travers le modèle. Cela calcule les gradients de la perte par rapport à chaque paramètre du modèle. `accelerator` peut être un outil pour optimiser cette opération sur plusieurs GPU ou pour d'autres améliorations de performance.
+
+3. Mise à Jour des Paramètres du Modèle: `optimizer.step()` met à jour les paramètres (poids et biais) du modèle en fonction des gradients calculés. C'est ce qu'on appelle une étape d'optimisation.
+
+4. Mise à Jour du Taux d'Apprentissage : `lr_scheduler.step()` ajuste le taux d'apprentissage, souvent pour le diminuer au fil du temps, ce qui peut aider à améliorer la précision de l'entraînement.
+
+5.  Réinitialisation des Gradients:`optimizer.zero_grad()` réinitialise les gradients accumulés. Cela empêche l'accumulation de gradients d'un lot à l'autre, ce qui pourrait mener à des erreurs dans l'entraînement.
+
+
+
+
+**Evaluation** :
 Après avoir activé le mode évaluation avec `model.eval()`:
 
 ```python

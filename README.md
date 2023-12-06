@@ -139,7 +139,20 @@ print(mapping)
 ```
 
 # Fonctionement d'un modèle de question réponse
+```python
+train_dataloader = DataLoader(
+    train_set,
+    collate_fn=default_data_collator,
+    shuffle=True,
+    batch_size=8
+)
 
+val_dataloader = DataLoader(
+    validation_set,
+    collate_fn=default_data_collator,
+    batch_size=8
+)
+```
 ```python
 import torch
 

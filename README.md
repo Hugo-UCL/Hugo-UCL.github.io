@@ -105,4 +105,33 @@ Rep tokenized her mother
 
 # part 2
 
+Inference (1)
+Consider the model trained on three epochs (the result of Question 3) and use it to predict the answer on a novel question+context pair(not in the squad dataset):
+
+Question: "How can I use the fine-tuned SQuAD model to answer a new question given a context?"
+
+Context: "The SQuAD model is a question-answering model that has been fine-tuned on the Stanford Question Answering Dataset (SQuAD). It can be used to answer new questions given a context. The context is a piece of text that contains the information needed to answer the question. To use the model, you need to pass the question and the context to the model's prediction function. The model will then return the answer to the question based on the information in the context."
+
+## Tokenize 
+```python
+print(tokenized_dataset["input_ids"][0])
+# [101, 2057, 2235, 102]
+# Représente la phrase : "Le chat dort."
+```
+questions = "Question"
+contexts = "Context"
+
+tokenized_inputs = tokenizer(questions, contexts, padding=True, truncation=True,
+                             return_overflowing_tokens=True, stride=50, max_length=100, return_offsets_mapping=True )
+
+Mapping
+mapping = tokenized_inputs['overflow_to_sample_mapping']
+print(mapping)
+
+# Question précédente
+# Récupération des clés du dictionnaire résultant
+tokenized_keys = tokenized_inputs.keys()
+print(tokenized_keys)
+
+
 

@@ -228,5 +228,18 @@ for batch in val_dataloader:
 
 Ici, `model(**batch)` est l'endroit où le modèle est utilisé. Pour chaque lot (`batch`) de données de l'ensemble de validation (`val_dataloader`), le modèle fait des prédictions. `with torch.no_grad()` est utilisé pour désactiver le calcul des gradients, car pendant l'évaluation, on ne veut pas que le modèle modifie ses poids, ce qui est essentiel pendant la phase d'entraînement.
 
+```python
+ for batch in val_dataloader:
+     with torch.no_grad():
+         outputs = model(**batch)
+
+     start_logits.append(accelerator.gather(outputs.start_logits).cpu().numpy())
+     end_logits.append(accelerator.gather(outputs.end_logits).cpu().numpy())
+```
+
+
+Pour chaque question posée au modèle, il examine le paragraphe ou le texte de contexte fourni et calcule un ensemble de logits pour le début et un autre ensemble pour la fin de la réponse potentielle. Chaque token dans le texte, qui est le contexte de la réponse, se voit attribuer deux logits : un qui indique la probabilité qu'il soit le début de la réponse et un autre pour la fin de la réponse. Le modèle produit ces logits en analysant le texte, en tenant compte de la manière dont les mots sont utilisés et reliés les uns aux autres. Au cours de ces calculs, il s'appuie sur ses couches internes, basées sur l'architecture BERT, et, au terme de ce processus, produit les logits correspondants.
+
+Dans un modèle de réponse aux questions, il y aura typiquement deux ensembles de logits : un pour les positions de début potentielles de la réponse dans le texte, et un autre pour les positions de fin.  Dans notre cas, `outputs.start_logits` et `outputs.end_logits`.
 
 

@@ -1,5 +1,22 @@
 # Linguistic
 
+# Summary
+
+1. **3.1 Data acquisition**
+   - Understand the data you will use during this project.
+
+2. **3.2 Data tokenization**
+   - Build and use a tokenizer according to the given instructions.
+
+3. **3.3 Data labeling**
+   - Complete a function to label the tokenized data.
+
+4. **3.4 Compute metrics**
+   - Complete a function to obtain the metrics used to evaluate the model.
+
+5. **3.5 Training – validation loop**
+   - Complete the loop used to train and evaluate the model.
+
 **Gestion des Tokens Overflow** : La fonction traite les cas où une paire question-context dépasse la longueur maximale autorisée. Elle conserve le mapping entre ces fragments débordants et les exemples originaux à l'aide de `sample_map`.
 
 `overflow_to_sample_mapping`. Imaginons que nous ayons un dataset de deux phrases très longues nécessitant une tokenisation en plusieurs fragments. Voici les phrases et leurs fragments respectifs :

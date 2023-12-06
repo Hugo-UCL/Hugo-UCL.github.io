@@ -112,6 +112,16 @@ Question: "How can I use the fine-tuned SQuAD model to answer a new question giv
 
 Context: "The SQuAD model is a question-answering model that has been fine-tuned on the Stanford Question Answering Dataset (SQuAD). It can be used to answer new questions given a context. The context is a piece of text that contains the information needed to answer the question. To use the model, you need to pass the question and the context to the model's prediction function. The model will then return the answer to the question based on the information in the context."
 
+## prérequis 
+- Question 
+- Context
+- Answer
+
+```python
+print(answers)
+ {'text': ['the Main Building'], 'answer_start': [279]}
+```
+
 ## Tokenize 
 ```python
 questions = "Question"

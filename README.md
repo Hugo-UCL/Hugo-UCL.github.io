@@ -139,6 +139,7 @@ print(mapping)
 ```
 
 # Fonctionement d'un modèle de question réponse
+
 ```python
 import torch
 

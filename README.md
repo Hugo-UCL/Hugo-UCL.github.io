@@ -257,3 +257,9 @@ Pour chaque question posée au modèle, il examine le texte de contexte fourni e
 Dans un modèle de réponse aux questions, il y aura typiquement deux ensembles de logits : un pour les positions de début potentielles de la réponse dans le texte, et un autre pour les positions de fin.  Dans notre cas, `outputs.start_logits` et `outputs.end_logits`.
 
 
+
+**Création de `Dataset` pour Hugging Face** :
+   - Lorsque `.map` est appliqué avec `batched=True`, il traite les données en utilisant des lots et retourne un nouvel objet `Dataset` avec les modifications apportées.
+   - L'utilisation de `remove_columns=dataset.column_names` dans `.map` supprime les colonnes originales, ne conservant que les nouvelles colonnes ajoutées ou modifiées par la fonction `labeling_dataset`.
+cette approche est spécifiquement conçue pour traiter de grands ensembles de données où vous avez plusieurs exemples (comme des questions et des contextes) que vous voulez transformer en même temps.
+

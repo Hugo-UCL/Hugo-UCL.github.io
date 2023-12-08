@@ -263,3 +263,22 @@ Dans un modèle de réponse aux questions, il y aura typiquement deux ensembles 
    - L'utilisation de `remove_columns=dataset.column_names` dans `.map` supprime les colonnes originales, ne conservant que les nouvelles colonnes ajoutées ou modifiées par la fonction `labeling_dataset`.
 cette approche est spécifiquement conçue pour traiter de grands ensembles de données où vous avez plusieurs exemples (comme des questions et des contextes) que vous voulez transformer en même temps.
 
+
+
+Le tokenizer de Hugging Face, lorsqu'il est utilisé pour traiter une paire de séquences (comme une question et un contexte dans le cas d'un modèle de réponse aux questions), combine ces deux séquences en une seule entrée pour le modèle. Cela signifie que les données tokenisées ne contiendront pas de champs distincts pour la "question" et le "contexte". Au lieu de cela, elles sont fusionnées en une seule séquence, avec des tokens spéciaux (comme `[SEP]` dans BERT et ses variantes) pour marquer la séparation entre les deux.
+
+Voici pourquoi et comment cela fonctionne :
+
+1. **Fusion de la Question et du Contexte** :
+   - Lors de la tokenisation de la paire question-contexte, le tokenizer fusionne ces deux éléments en une seule séquence pour créer un format approprié pour le modèle de réponse aux questions.
+   - Par exemple, dans le cas de BERT et de ses variantes, la séquence résultante serait quelque chose comme `[CLS] question [SEP] contexte [SEP]`.
+
+2. **Pas de Champ 'question' dans `tokenized_data`** :
+   - C'est pourquoi vous ne verrez pas de champ distinct pour la "question" dans `tokenized_data`. Au lieu de cela, vous obtenez des champs comme `input_ids` et `attention_mask`, qui représentent la séquence combinée de la question et du contexte.
+
+3. **Utilisation des Données Tokenisées** :
+   - Les `input_ids` sont des identifiants de tokens qui représentent la question et le contexte. Les modèles de réponse aux questions utilisent cette séquence combinée pour comprendre la question dans le contexte donné et trouver la réponse appropriée.
+   - Les autres champs comme `attention_mask` et `offset_mapping` sont utilisés pour gérer les aspects tels que les tokens de padding et le mappage des tokens aux positions d'origine dans le texte.
+
+Si vous avez besoin d'identifier séparément la question et le contexte après la tokenisation, vous devrez utiliser les marqueurs spéciaux (comme `[SEP]`) ou `offset_mapping` pour déterminer où se termine la question et où commence le contexte dans les `input_ids`. Cependant, pour la plupart des modèles de réponse aux questions, cette distinction n'est pas nécessaire une fois les données tokenisées, car le modèle traite la séquence combinée dans son ensemble.
+

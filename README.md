@@ -1,4 +1,4 @@
-# Linguistic
+# Linguistic - DistilBERT-base-case
 
 # Summary
 

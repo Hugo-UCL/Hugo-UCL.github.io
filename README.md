@@ -1,4 +1,4 @@
-# Linguistic - DistilBERT-base-case
+# Answer span extraction - DistilBERT-base-case
 
 # Summary
 
